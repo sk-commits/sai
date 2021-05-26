@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+	alert("first");
+	$(document).ready(function() {
+		alert("hello");
+		$("#submit").click(function() {
+			alert("on click called");
+			var FName = $('#first').val();
+			alert("third");
+
+			$.ajax({
+				type: 'GET',
+				data: {FName:FName},
+				url: './communication',
+				success: function(result) {
+					/* $("#submit").html(result); */
+					alert(result);
+				},
+				error : function(err) {
+					alert("unable to reterive data" + err); 
+					
+					/* $.ajax({
+						type: 'GET',
+					 	data: {FName:FName},
+						url:'./communication',
+						success: function(result){
+							alert(result);	
+							},
+						error: function(err){
+							alert("Unable to retrieve data"+err); */
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<h3>Registration Form</h3>
+
+	<form action="" method="">
+
+		FirstName:<input type="text" name="first" id="first" /> <input
+			type="submit" value="save" id="submit" />
+
+	</form>
+</body>
+</html>

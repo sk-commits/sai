@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+ function callServlet(methodtype)
+{
+	 alert("hello");
+	 var first = document.getElementById("firstName").value;
+	 alert("second");
+ document.getElementById("VehicleProcessor").action='./communication';
+     alert("third");
+ document.getElementById("VehicleProcessor").methodtype = 'Get';
+ alert("fourth");
+ document.getElementById("VehicleProcessor").submit();
+ alert("done");
+ 
+ 
+ }
+ </script>
+</head>
+<body>
+
+<form id="VehicleProcessor">
+firstName: <input type="text" id="firstName" name ="firstName"/>
+		<input type="submit"  onclick = "callServlet('Get')" value="doGet"/>
+		<input type="submit"  onclick = "callServlet('post')" value="doPost"/>
+  
+</form>
+
+</body>
+</html>
